@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgaheqby8ruce"]
+
+[ext_resource type="Texture2D" uid="uid://ochcjg3t4prm" path="res://assets/kenney/enemies/barrel_yellow.png" id="1_81q15"]
+[ext_resource type="Script" path="res://enemigos/boss.gd" id="1_iqxaj"]
+[ext_resource type="Texture2D" uid="uid://daki462ckoaks" path="res://assets/kenney/enemies/character_square_red.png" id="2_27ss4"]
+[ext_resource type="Texture2D" uid="uid://dw8qx2cnl4b53" path="res://assets/kenney/enemies/character_handRed.png" id="3_sawk4"]
+
+[sub_resource type="Animation" id="Animation_46q4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSquareRed/CharacterHandRed:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterSquareRed/CharacterHandRed/BarrelYellow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterSquareRed:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uknsv"]
+resource_name = "lanzar"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSquareRed:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterSquareRed/CharacterHandRed:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-11, 12), Vector2(31, -1), Vector2(0, -41), Vector2(43, -4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterSquareRed/CharacterHandRed/BarrelYellow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"launch_barrel"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_c685m"]
+resource_name = "reposo"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSquareRed/CharacterHandRed:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-11, 12), Vector2(-9, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterSquareRed/CharacterHandRed/BarrelYellow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdbqv"]
+_data = {
+"RESET": SubResource("Animation_46q4g"),
+"lanzar": SubResource("Animation_uknsv"),
+"reposo": SubResource("Animation_c685m")
+}
+
+[node name="Boss" type="Node2D"]
+position = Vector2(280, 125)
+script = ExtResource("1_iqxaj")
+
+[node name="BarrelYellow" type="Sprite2D" parent="."]
+position = Vector2(-44, 11)
+texture = ExtResource("1_81q15")
+
+[node name="BarrelYellow2" type="Sprite2D" parent="."]
+position = Vector2(-85, 12)
+texture = ExtResource("1_81q15")
+
+[node name="BarrelYellow3" type="Sprite2D" parent="."]
+position = Vector2(-125, 12)
+texture = ExtResource("1_81q15")
+
+[node name="BarrelYellow4" type="Sprite2D" parent="."]
+position = Vector2(-105, -23)
+texture = ExtResource("1_81q15")
+
+[node name="BarrelYellow5" type="Sprite2D" parent="."]
+position = Vector2(-65, -25)
+texture = ExtResource("1_81q15")
+
+[node name="CharacterSquareRed" type="Sprite2D" parent="."]
+texture = ExtResource("2_27ss4")
+
+[node name="CharacterHandRed" type="Sprite2D" parent="CharacterSquareRed"]
+position = Vector2(-9, 8)
+texture = ExtResource("3_sawk4")
+
+[node name="BarrelYellow" type="Sprite2D" parent="CharacterSquareRed/CharacterHandRed"]
+visible = false
+position = Vector2(14, 16)
+texture = ExtResource("1_81q15")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wdbqv")
+}
+autoplay = "reposo"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true

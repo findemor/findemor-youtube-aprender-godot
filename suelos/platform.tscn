@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bljdonn1lbqqj"]
+
+[ext_resource type="Texture2D" uid="uid://d0fxnbhg1muev" path="res://assets/kenney/floor/ladder.png" id="1_ar18c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbloo"]
+size = Vector2(929, 20)
+
+[node name="Platform" type="StaticBody2D"]
+
+[node name="Bridge" type="Sprite2D" parent="."]
+texture = ExtResource("1_ar18c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -11)
+shape = SubResource("RectangleShape2D_lbloo")
+one_way_collision = true

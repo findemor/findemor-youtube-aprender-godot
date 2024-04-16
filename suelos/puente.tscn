@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6uqfrnmphs6d"]
+
+[ext_resource type="Texture2D" uid="uid://cjbqhekfcxsw6" path="res://assets/kenney/floor/bridge.png" id="1_n8bmq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbloo"]
+size = Vector2(1440, 20)
+
+[node name="Puente" type="StaticBody2D"]
+
+[node name="Bridge" type="Sprite2D" parent="."]
+position = Vector2(0, 66)
+texture = ExtResource("1_n8bmq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_lbloo")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://i6fbee67uc6n"]
+
+[ext_resource type="Texture2D" uid="uid://dtks4pb0v70ka" path="res://assets/kenney/floor/end.png" id="1_qnfdn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbloo"]
+size = Vector2(417, 8)
+
+[node name="Top" type="StaticBody2D"]
+
+[node name="Bridge" type="Sprite2D" parent="."]
+texture = ExtResource("1_qnfdn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -5)
+shape = SubResource("RectangleShape2D_lbloo")
+one_way_collision = true

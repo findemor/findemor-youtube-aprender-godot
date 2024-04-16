@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://crmfkeiomfadm"]
+
+[ext_resource type="Script" path="res://ui/SceneFinish.gd" id="1_vvg3l"]
+
+[node name="SceneFinish" type="CanvasLayer"]
+script = ExtResource("1_vvg3l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -29.0
+offset_right = 68.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "VOLVER A JUGAR"
+
+[connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]

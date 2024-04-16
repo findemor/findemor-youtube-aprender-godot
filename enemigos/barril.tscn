@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnqx0yfe6tk6q"]
+
+[ext_resource type="Script" path="res://enemigos/barril.gd" id="1_6a10g"]
+[ext_resource type="Texture2D" uid="uid://ochcjg3t4prm" path="res://assets/kenney/enemies/barrel_yellow.png" id="1_i35f5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npyhx"]
+radius = 19.0263
+
+[node name="Barril" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+max_contacts_reported = 4
+contact_monitor = true
+script = ExtResource("1_6a10g")
+
+[node name="BarrelYellow" type="Sprite2D" parent="."]
+texture = ExtResource("1_i35f5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_npyhx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
