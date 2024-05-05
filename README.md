@@ -10,7 +10,7 @@ Creado con la versión de Godot Engine v4.3.dev3.official
 
 ### Atribuciones
 
-El proyecto contiene Assets originales y derivados [la web Kenney](https://www.kenney.nl/assets/scribble-platformer)
+El proyecto contiene Assets (originales y derivados) descargados de [la web Kenney](https://www.kenney.nl/assets/scribble-platformer)
 
 
 ### Licencia
