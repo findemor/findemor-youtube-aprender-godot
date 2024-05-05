@@ -28,7 +28,18 @@ func _physics_process(delta):
 		velocity.y = velocity.y - jump_speed
 	
 	move_and_slide()
+	
+	check_barril_hit()
 
+func check_barril_hit():
+	#fix de los barriles chocando con el personaje
+	var last_collisions:KinematicCollision2D = get_last_slide_collision()
+	if last_collisions:
+		var collider_node = last_collisions.get_collider()
+		if collider_node is Barril:
+			if collider_node.can_damage():
+				damage_received()
+				collider_node.set_damage_done()
 
 func _on_area_2d_body_entered(body):
 	print("Un cuerpo ha entrado en el área: ", body.name)
