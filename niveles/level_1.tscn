@@ -134,7 +134,6 @@ rotation = -0.0698132
 [node name="Personaje" parent="." instance=ExtResource("2_f3i8q")]
 position = Vector2(210, 531)
 collision_layer = 2
-collision_mask = 5
 
 [node name="Boss" parent="." instance=ExtResource("10_pnl6e")]
 position = Vector2(172, -109)
