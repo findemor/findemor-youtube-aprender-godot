@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dva1s2482hdu"]
+[gd_scene load_steps=21 format=3 uid="uid://dva1s2482hdu"]
 
 [ext_resource type="Script" path="res://personaje/CameraFollow.gd" id="1_1h50n"]
 [ext_resource type="Texture2D" uid="uid://dvsc2vm55lnev" path="res://assets/kenney/decoration/background_tree.png" id="1_gfguo"]
@@ -14,9 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://dgaheqby8ruce" path="res://enemigos/boss.tscn" id="10_pnl6e"]
 [ext_resource type="PackedScene" uid="uid://dj5jiwqy6m03p" path="res://ui/canvas_layer_ui.tscn" id="12_usisn"]
 [ext_resource type="Script" path="res://niveles/GameController.gd" id="13_1i60b"]
+[ext_resource type="Texture2D" uid="uid://hr5eypyfqq3q" path="res://assets/kenney/items/item_shield.png" id="15_vl7xw"]
+[ext_resource type="Texture2D" uid="uid://bexfd3mom62qd" path="res://assets/kenney/items/item_key.png" id="16_lk1dr"]
+[ext_resource type="Script" path="res://items/item.gd" id="17_8uy6l"]
+[ext_resource type="Texture2D" uid="uid://duwvx52qdprsn" path="res://assets/kenney/items/item_sword.png" id="17_15347"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbmyf"]
 size = Vector2(105, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmwsy"]
 
 [node name="Level1" type="Node2D"]
 
@@ -139,6 +145,28 @@ collision_layer = 2
 position = Vector2(172, -109)
 
 [node name="CanvasLayerUI" parent="." instance=ExtResource("12_usisn")]
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="ItemShield" type="Sprite2D" parent="Items"]
+position = Vector2(406, 533)
+texture = ExtResource("15_vl7xw")
+
+[node name="ItemKey" type="Area2D" parent="Items"]
+position = Vector2(314, 539)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("17_8uy6l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Items/ItemKey"]
+texture = ExtResource("16_lk1dr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemKey"]
+shape = SubResource("RectangleShape2D_dmwsy")
+
+[node name="ItemSword" type="Sprite2D" parent="Items"]
+position = Vector2(509, 518)
+texture = ExtResource("17_15347")
 
 [connection signal="player_health_updated" from="GameController" to="CanvasLayerUI" method="_on_game_controller_player_health_updated"]
 [connection signal="time_updated" from="GameController" to="CanvasLayerUI" method="_on_game_controller_time_updated"]
