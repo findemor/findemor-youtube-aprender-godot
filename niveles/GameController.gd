@@ -9,6 +9,9 @@ signal time_updated(seconds_left)
 @export var time_seconds = 100
 
 func game_over():
+	call_deferred("go_finish_scene")
+	
+func go_finish_scene():
 	get_tree().change_scene_to_file(SCENE_FINISH_FILE)
 	
 func game_victory():
@@ -19,7 +22,7 @@ func game_victory():
 
 func _on_personaje_player_hit():
 	print("Game controller se ha enterado de que el jugador sufrio daño")
-	if player_health > 0:
+	if player_health > 1:
 		player_health = player_health - 1
 		player_health_updated.emit(player_health)
 	else:
