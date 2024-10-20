@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpn282vwtwacc"]
+[gd_scene load_steps=8 format=3 uid="uid://dpn282vwtwacc"]
 
 [ext_resource type="Texture2D" uid="uid://xalh0jcceivx" path="res://assets/kenney/character/character_round_purple.png" id="1_q65ru"]
 [ext_resource type="Script" path="res://personaje/personaje.gd" id="1_x0ldx"]
 [ext_resource type="Script" path="res://personaje/inventory.gd" id="3_o2ad2"]
+[ext_resource type="Script" path="res://ui/inventory_ui.gd" id="4_3e7c0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fryba"]
 radius = 18.0
@@ -10,6 +11,8 @@ height = 58.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8eccj"]
 size = Vector2(56, 41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trc3i"]
 
 [node name="Personaje" type="CharacterBody2D"]
 script = ExtResource("1_x0ldx")
@@ -32,4 +35,25 @@ script = ExtResource("3_o2ad2")
 position = Vector2(10, 2.5)
 shape = SubResource("RectangleShape2D_8eccj")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryUI" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -101.5
+offset_top = -75.0
+offset_right = 101.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_trc3i")
+script = ExtResource("4_3e7c0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/InventoryUI"]
+layout_mode = 2
+
 [connection signal="area_entered" from="Inventory" to="Inventory" method="_on_area_entered"]
+[connection signal="item_added" from="Inventory" to="CanvasLayer/InventoryUI" method="_on_inventory_item_added"]

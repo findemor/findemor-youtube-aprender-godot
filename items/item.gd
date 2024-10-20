@@ -7,3 +7,6 @@ enum ItemType { SHIELD, KEY, SWORD }
 
 func collect_item():
 	queue_free()
+	
+func get_texture() -> CompressedTexture2D:
+	return $Sprite2D.texture

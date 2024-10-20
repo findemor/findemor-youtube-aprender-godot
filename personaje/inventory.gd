@@ -1,5 +1,7 @@
 extends Area2D
 
+signal item_added(item:Item, quantity:int)
+
 ## inventario, ej.
 ## {
 ## 		Shield = 3,
@@ -18,5 +20,6 @@ func add_item_to_inventory(item:Item):
 		inventory[item.type] = 1
 	else:
 		inventory[item.type] = inventory[item.type] + 1
+	item_added.emit(item, inventory[item.type])
 	prints("añadido al inventario objeto de tipo", Item.ItemType.keys()[item.type], "ahora tenemos:", inventory[item.type])
 		
