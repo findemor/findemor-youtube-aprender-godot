@@ -23,6 +23,10 @@ speed = 150
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_q65ru")
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite2D"]
+remote_path = NodePath("../../Inventory")
+update_position = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_fryba")
 
