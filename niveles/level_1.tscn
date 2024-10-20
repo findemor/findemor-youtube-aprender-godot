@@ -157,11 +157,25 @@ position = Vector2(314, 539)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("17_8uy6l")
+type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Items/ItemKey"]
 texture = ExtResource("16_lk1dr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemKey"]
+shape = SubResource("RectangleShape2D_dmwsy")
+
+[node name="ItemKey2" type="Area2D" parent="Items"]
+position = Vector2(361, 536)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("17_8uy6l")
+type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Items/ItemKey2"]
+texture = ExtResource("16_lk1dr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/ItemKey2"]
 shape = SubResource("RectangleShape2D_dmwsy")
 
 [node name="ItemSword" type="Sprite2D" parent="Items"]
