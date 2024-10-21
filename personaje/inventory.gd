@@ -31,4 +31,7 @@ func consume_item_from_inventory(item_type:Item.ItemType):
 		prints("objeto consumido de tipo", Item.ItemType.keys()[item_type], "quedan:", inventory[item_type])
 		if inventory[item_type] <= 0: inventory.erase(item_type)
 		
-		
+
+
+func _on_inventory_ui_inventory_item_ui_selected(item_type: Item.ItemType) -> void:
+	consume_item_from_inventory(item_type)
