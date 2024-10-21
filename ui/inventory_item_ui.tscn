@@ -6,6 +6,7 @@
 
 [node name="InventoryItemUI" type="Panel"]
 custom_minimum_size = Vector2(65, 75)
+mouse_default_cursor_shape = 2
 script = ExtResource("1_f1sl5")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -51,3 +52,6 @@ size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "2"
 horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

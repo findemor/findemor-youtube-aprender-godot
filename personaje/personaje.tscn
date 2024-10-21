@@ -61,3 +61,4 @@ layout_mode = 2
 
 [connection signal="area_entered" from="Inventory" to="Inventory" method="_on_area_entered"]
 [connection signal="item_added" from="Inventory" to="CanvasLayer/InventoryUI" method="_on_inventory_item_added"]
+[connection signal="item_consumed" from="Inventory" to="CanvasLayer/InventoryUI" method="_on_inventory_item_consumed"]

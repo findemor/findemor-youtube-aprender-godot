@@ -1,6 +1,7 @@
 extends Area2D
 
 signal item_added(item:Item, quantity:int)
+signal item_consumed(item_type:Item.ItemType, quantity_left:int)
 
 ## inventario, ej.
 ## {
@@ -22,4 +23,12 @@ func add_item_to_inventory(item:Item):
 		inventory[item.type] = inventory[item.type] + 1
 	item_added.emit(item, inventory[item.type])
 	prints("añadido al inventario objeto de tipo", Item.ItemType.keys()[item.type], "ahora tenemos:", inventory[item.type])
+		
+func consume_item_from_inventory(item_type:Item.ItemType):
+	if inventory.has(item_type):
+		inventory[item_type] = inventory[item_type] - 1
+		item_consumed.emit(item_type, inventory[item_type])
+		prints("objeto consumido de tipo", Item.ItemType.keys()[item_type], "quedan:", inventory[item_type])
+		if inventory[item_type] <= 0: inventory.erase(item_type)
+		
 		
