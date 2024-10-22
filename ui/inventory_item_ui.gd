@@ -16,11 +16,13 @@ var mouse_over:bool = false
 
 func _on_mouse_entered() -> void:
 	mouse_over = true
-	prints(item_type, "mouse_over ", mouse_over)
+	var tween = get_tree().create_tween()
+	tween.tween_property($NinePatchRect, "modulate", Color("#9b7aff"), 0.3)
 
 func _on_mouse_exited() -> void:
 	mouse_over = false
-	prints(item_type, "mouse_over ", mouse_over)
+	var tween = get_tree().create_tween()
+	tween.tween_property($NinePatchRect, "modulate", Color.WHITE, 0.3)
 	
 func _input(event):
 	if event is InputEventMouseButton and event.is_released():
