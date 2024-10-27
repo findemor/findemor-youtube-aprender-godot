@@ -17,11 +17,13 @@ var mouse_over:bool = false
 func _on_mouse_entered() -> void:
 	mouse_over = true
 	var tween = get_tree().create_tween()
+	tween.bind_node(self)
 	tween.tween_property($NinePatchRect, "modulate", Color("#9b7aff"), 0.3)
 
 func _on_mouse_exited() -> void:
 	mouse_over = false
 	var tween = get_tree().create_tween()
+	tween.bind_node(self)
 	tween.tween_property($NinePatchRect, "modulate", Color.WHITE, 0.3)
 	
 func _input(event):
